@@ -4,8 +4,7 @@ import axios from "axios";
 export const fetchLeads = createAsyncThunk("leads/fetchLeads", async () => {
   const response = await axios.get(
     "https://codeflix-crm-backend.vercel.app/leads"
-  );
-  // console.log(response.data);
+  );  
   return response.data;
 });
 
@@ -48,56 +47,18 @@ export const updateLead = createAsyncThunk(
   }
 );
 
-// export const fetchLeadStatus = createAsyncThunk(
-//   "leads/fetchLeadStatus",
-//   async (statusname, thunkAPI) => {
-//     try {
-//       const response = await axios.get(
-//         `https://codeflix-crm-backend.vercel.app/leads/status/${statusname}`
-//       );
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(
-//         error.response?.data || "Failed to fetch lead status"
-//       );
-//     }
-//   }
-// );
-
 export const fetchLeadStatus = createAsyncThunk(
   "leads/fetchLeadStatus",
   async (statusname, thunkAPI) => {
-    try {
-      console.log("Fetching leads with status:", statusname); // ✅ Debug log
-      const response = await axios.get(`https://codeflix-crm-backend.vercel.app/leads/status/${statusname}`);
-      console.log(response.data, "asasasasa")
+    try {      
+      const response = await axios.get(`https://codeflix-crm-backend.vercel.app/leads/status/${statusname}`);     
       return response.data;
-    } catch (error) {
-      console.error("Error fetching leads by status:", error); // ✅ Error log
+    } catch (error) {      
       return thunkAPI.rejectWithValue(error.response?.data || "Failed to fetch lead status");
     }
   }
 );
 
-// export const removeLeads = createAsyncThunk(
-//   "leads/removeLeads",
-//   async ({ leadId }, { rejectWithValue, dispatch }) => {
-//     try {
-//       await axios.delete(`https://codeflix-crm-backend.vercel.app/leads/${leadId}`);
-      
-//       dispatch(fetchLeads());
-
-//       return leadId;
-//     } catch (error) {
-//       const errorMessage =
-//         error.response?.data?.error ||
-//         error.message ||
-//         "Failed to remove lead.";
-//       console.error("Remove Lead error:", errorMessage);
-//       return rejectWithValue(errorMessage);
-//     }
-//   }
-// );
 
 export const removeLeads = createAsyncThunk(
   "lead/removeLeads",
@@ -106,7 +67,7 @@ export const removeLeads = createAsyncThunk(
       const response = await axios.delete(
         `https://codeflix-crm-backend.vercel.app/leads/${id}`
       );
-      return id; // return just the ID so we can remove from state
+      return id; 
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || err.message);
     }
@@ -168,10 +129,7 @@ export const leadsSlice = createSlice({
       })
       .addCase(updateLead.pending, (state) => {
         state.status = "loading";
-      })
-      // .addCase(updateLead.fulfilled, (state, action) => {
-      //   state.status = "succeeded";
-      // })
+      })     
       .addCase(updateLead.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload || action.error.message;

@@ -23,9 +23,9 @@ export const fetchClosedLeadsLastWeek = createAsyncThunk(
     const data = await response.json();
 
     if (response.ok && data.count >= 0) {
-      return data.count; // or data.data if needed
+      return data.count; 
     } else {
-      // Return 0 for no closed leads
+     
       return 0;
     }
   }
@@ -57,7 +57,7 @@ export const reportSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // ✅ Closed Leads
+      
       .addCase(fetchClosedLeads.pending, (state) => {
         state.status = "loading";
       })
@@ -70,7 +70,7 @@ export const reportSlice = createSlice({
         state.error = action.payload || action.error.message;
       })
 
-      // ✅ Pipeline Count
+     
       .addCase(fetchPipeline.pending, (state) => {
         state.status = "loading";
       })

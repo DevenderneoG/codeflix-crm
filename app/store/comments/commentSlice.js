@@ -11,20 +11,6 @@ export const fetchComments = createAsyncThunk(
     return response.data;
   }
 );
-// export const addComment = createAsyncThunk(
-//   "leads/addComment",
-//   async ({ id, commentText }, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.post(
-//         `https://codeflix-crm-backend.vercel.app/leads/${id}/comments`,
-//         { text: commentText }
-//       );
-//       return response.data;
-//     } catch (error) {
-//       return rejectWithValue(error.response?.data || error.message);
-//     }
-//   }
-// );
 
 export const addComment = createAsyncThunk(
   "leads/addComment",
