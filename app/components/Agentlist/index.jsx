@@ -32,7 +32,7 @@ const AgentList = ({ agents }) => {
         </h4>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col overflow-auto">
         <div className="grid grid-cols-3 rounded-sm bg-[#f7f9fc] dark:bg-[#313d4a] sm:grid-cols-3">
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
@@ -61,7 +61,7 @@ const AgentList = ({ agents }) => {
             key={key}
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              <p className="hidden text-black dark:text-white sm:block">
+              <p className="text-black dark:text-white sm:block">
                 <Link href={`/agents/${agent._id}`}>{agent.name}</Link>
               </p>
             </div>

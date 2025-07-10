@@ -19,8 +19,8 @@ const TableOne = ({ agents }) => {
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <div className="grid grid-cols-3 rounded-sm bg-[#f7f9fc] dark:bg-[#313d4a] sm:grid-cols-5">
+      <div className="flex flex-col overflow-auto">
+        <div className="grid grid-cols-2 rounded-sm bg-[#f7f9fc] dark:bg-[#313d4a] sm:grid-cols-2">
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Name
@@ -35,7 +35,7 @@ const TableOne = ({ agents }) => {
 
         {agents.map((agent, key) => (
           <div
-            className={`grid grid-cols-3 sm:grid-cols-5 ${
+            className={`grid grid-cols-2 sm:grid-cols-2 ${
               key === agents.length - 1
                 ? ""
                 : "border-b border-[#e2e8f0] dark:border-[#2e3a47]"
@@ -43,7 +43,7 @@ const TableOne = ({ agents }) => {
             key={key}
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              <p className="hidden text-black dark:text-white sm:block">
+              <p className="text-black dark:text-white sm:block">
                 <Link href={`/agents/${agent._id}`}>{agent.name}</Link>
               </p>
             </div>

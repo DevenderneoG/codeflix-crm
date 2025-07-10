@@ -54,9 +54,9 @@ const LeadStatus = () => {
         <h1 className="text-2xl font-bold mb-4 text-black dark:text-white">
           Leads with status: {statusLeads[0]?.status}
         </h1>
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex lg:flex-row flex-col items-center gap-4 lg:w-auto w-full">
           {/* Agent Filter */}
-          <div className="relative w-full min-w-[200px]">
+          <div className="relative w-full lg:min-w-[200px] min-w-full">
             <select
               value={selectedAgent}
               onChange={(e) => setSelectedAgent(e.target.value)}

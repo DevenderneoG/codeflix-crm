@@ -25,7 +25,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
               e.stopPropagation();
               setSidebarOpen(!sidebarOpen);
             }}
-            className="z-99999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
+            className="z-99999 block rounded-sm border border-[#e2e8f0] bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden"
           >
             <span className="relative block h-5.5 w-5.5 cursor-pointer">
               <span className="du-block absolute right-0 h-full w-full">
@@ -62,12 +62,13 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           {/* Hamburger Toggle BTN */}
 
           <Link className="block flex-shrink-0 lg:hidden" href="/">
-            <Image
+            {/* <Image
               width={32}
               height={32}
               src={"/image/logo-icon.svg"}
               alt="Logo"
-            />
+            /> */}
+            <Image src={"./logo-icon.svg"} alt="Logo" width={32} height={32} className="h-12 w-14" />
           </Link>
         </div>
 
