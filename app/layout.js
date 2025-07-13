@@ -4,14 +4,9 @@
 
 import "./globals.css";
 import "./data-tables-css.css";
-// import "./satoshi.css";
 import { useState, useEffect } from "react";
-// import Loader from "@/components/common/Loader";
-// import Sidebar from "@/components/Sidebar";
-// import Header from "@/components/Header";
 import { Provider } from "react-redux";
 import Sidebar from "./components/Sidebar";
-// import { store } from "@/app/store/store";
 import store from "./store/store";
 import Loader from "./components/common/Loader";
 import Header from "./components/Header";

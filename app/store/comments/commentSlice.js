@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// ✅ Pass 'id' as a parameter
 export const fetchComments = createAsyncThunk(
   "leads/fetchComments",
   async (id) => {
